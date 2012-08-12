@@ -20,7 +20,7 @@ In your `.zshrc`, put bellow lines.
     autoload -U colors; colors
     autoload -U $(echo ~/.zsh.d/functions/*(:t))
 
-And example configuration into your `.zshrc`.
+And configuration into your `.zshrc`.
 
     # mysql client user
     typeset -A mysql_prompt_style_client_user
