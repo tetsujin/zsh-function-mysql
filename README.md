@@ -55,6 +55,6 @@ And example configuration into your `.zshrc`.
     
 ## Screenshot
 
-* ![sample1](doc/img/sample1.png)
-* ![sample2](doc/img/sample2.png)
+* ![sample1](https://raw.github.com/tetsujin/zsh-function-mysql/master/doc/img/sample1.png)
+* ![sample2](https://raw.github.com/tetsujin/zsh-function-mysql/master/doc/img/sample2.png)
 
