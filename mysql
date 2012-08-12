@@ -1,0 +1,60 @@
+#!/bin/zsh -f
+# function mysql {
+
+emulate -L zsh
+
+local opt style_client_user style_client_host style_server_user style_server_host
+local mysql_user=$USER
+local mysql_host="localhost"
+local original_args
+original_args=$@
+
+# Parse options
+while getopts u:h: opt &> /dev/null
+do
+    case "$opt" in
+        u)
+            mysql_user=$OPTARG
+            ;;
+        h)
+            mysql_host=$OPTARG
+            ;;
+    esac
+done
+
+# mysql_client_user
+for key in ${(k)mysql_prompt_style_client_user}; do
+    if [[ $USER = ${~key} ]]; then
+        style_client_user=$mysql_prompt_style_client_user[$key]
+        break
+    fi
+done
+# mysql_client_host
+for key in ${(k)mysql_prompt_style_client_host}; do
+    if [[ $HOST = ${~key} ]]; then
+        echo $key
+        style_client_host=$mysql_prompt_style_client_host[$key]
+        break
+    fi
+done
+# mysql_server_user
+for key in ${(k)mysql_prompt_style_server_user}; do
+    if [[ $mysql_user = ${~key} ]]; then
+        style_server_user=$mysql_prompt_style_server_user[$key]
+        break
+    fi
+done
+# mysql_server_host
+for key in ${(k)mysql_prompt_style_server_host}; do
+    if [[ $mysql_host = ${~key} ]]; then
+        style_server_host=$mysql_prompt_style_server_host[$key]
+        break
+    fi
+done
+
+export MYSQL_PS1="${(e)mysql_prompt}"
+# echo command mysql $original_args
+eval command mysql $original_args
+return $?
+
+# }
