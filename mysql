@@ -23,28 +23,28 @@ do
 done
 
 # mysql_client_user
-for key in ${(k)mysql_prompt_style_client_user}; do
+for key in $( echo ${(kF)mysql_prompt_style_client_user} | sort -r ); do
     if [[ $USER = ${~key} ]]; then
         style_client_user=$mysql_prompt_style_client_user[$key]
         break
     fi
 done
 # mysql_client_host
-for key in ${(k)mysql_prompt_style_client_host}; do
+for key in $( echo ${(kF)mysql_prompt_style_client_host} | sort -r ); do
     if [[ $HOST = ${~key} ]]; then
         style_client_host=$mysql_prompt_style_client_host[$key]
         break
     fi
 done
 # mysql_server_user
-for key in ${(k)mysql_prompt_style_server_user}; do
+for key in $( echo ${(kF)mysql_prompt_style_server_user} | sort -r ); do
     if [[ $mysql_user = ${~key} ]]; then
         style_server_user=$mysql_prompt_style_server_user[$key]
         break
     fi
 done
 # mysql_server_host
-for key in ${(k)mysql_prompt_style_server_host}; do
+for key in $( echo ${(kF)mysql_prompt_style_server_host} | sort -r ); do
     if [[ $mysql_host = ${~key} ]]; then
         style_server_host=$mysql_prompt_style_server_host[$key]
         break
