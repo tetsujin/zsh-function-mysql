@@ -32,7 +32,6 @@ done
 # mysql_client_host
 for key in ${(k)mysql_prompt_style_client_host}; do
     if [[ $HOST = ${~key} ]]; then
-        echo $key
         style_client_host=$mysql_prompt_style_client_host[$key]
         break
     fi
